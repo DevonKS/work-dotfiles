@@ -1,0 +1,42 @@
+{
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+    },
+    "prettier.eslintIntegration": true,
+    "editor.formatOnSave": false,
+    // Enable per-language
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+
+    "clojureVSCode.autoStartNRepl": false,
+
+    // Vim Setup
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys":{
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-n>": false,
+        "<C-o>": false
+    },
+    "vim.disableExtension": false,
+    "window.zoomLevel": 0,
+    "editor.renderWhitespace": "all",
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "workbench.startupEditor": "newUntitledFile",
+    "extensions.ignoreRecommendations": false,
+    "explorer.confirmDragAndDrop": false,
+}
