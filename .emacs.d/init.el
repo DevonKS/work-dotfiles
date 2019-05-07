@@ -38,7 +38,7 @@
   "e" 'eval-expression
   "r" 'execute-extended-command
   "j" 'avy-goto-char
-  "ls" (lambda () (interactive) (split-window-below) (windmove-down) (switch-to-buffer "shell") (window-resize nil -15) (shell (get-buffer "shell")))
+  "ls" (lambda () (interactive) (split-window-below) (windmove-down) (window-resize nil -15) (term "/bin/bash"))
   "sb" 'ido-switch-buffer
   "bk" 'ido-kill-buffer
   "fs" 'save-buffer
@@ -90,6 +90,9 @@
 (evil-leader/set-key "hs" 'highlight-symbol)
 
 (load-theme 'material t)
+
+(define-key evil-insert-state-map (kbd "C-r") nil)
+(global-unset-key (kbd "C-r"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
