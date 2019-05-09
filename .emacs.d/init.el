@@ -19,7 +19,8 @@
                       rainbow-delimiters
                       gruvbox-theme
                       material-theme
-                      avy))
+                      avy
+                      spaceline))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -93,6 +94,11 @@
 
 (define-key evil-insert-state-map (kbd "C-r") nil)
 (global-unset-key (kbd "C-r"))
+
+(require 'spaceline)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
