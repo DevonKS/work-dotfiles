@@ -167,10 +167,10 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status -c ~/.i3/i3status.conf
-        position top
-}
+#bar {
+#        status_command i3status -c ~/.i3/i3status.conf
+#        position top
+#}
 
 #----------------My Stuff---------------------------
 ## Volume control
@@ -200,6 +200,7 @@ bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $stat
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
 
+exec_always --no-startup-id ~/.i3/polybar.sh &
 
 bindsym $mod+Control+l exec gnome-screensaver-command -l
 
