@@ -200,8 +200,6 @@ bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $stat
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
 
-exec_always --no-startup-id ~/.i3/polybar.sh &
-
 bindsym $mod+Control+l exec gnome-screensaver-command -l
 
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to "%s"' -P 'New Name: '
@@ -211,3 +209,5 @@ bindsym $mod+Shift+w exec rofi -show window
 bindsym $mod+t exec rofi-theme-selector
 
 bindsym Mod1+Tab workspace back_and_forth
+
+exec_always --no-startup-id ~/.i3/launch-polybar.sh &
