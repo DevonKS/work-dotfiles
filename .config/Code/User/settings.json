@@ -5,10 +5,13 @@
     "javascript": "javascriptreact"
     },
     "prettier.eslintIntegration": true,
-    "editor.formatOnSave": false,
     // Enable per-language
     "[javascript]": {
         "editor.formatOnSave": true
+    },
+
+    "[xml]": {
+        "editor.formatOnSave": false
     },
 
     "clojureVSCode.autoStartNRepl": false,
