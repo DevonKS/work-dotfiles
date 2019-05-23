@@ -87,6 +87,8 @@
 (define-key evil-insert-state-map (kbd "C-r") nil)
 (global-unset-key (kbd "C-r"))
 
+(global-hl-line-mode 1)
+
 ;;;;; Company Mode
 (global-company-mode)
 
