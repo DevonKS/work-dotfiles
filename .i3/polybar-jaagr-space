@@ -7,9 +7,8 @@ background = #00000000
 foreground = #ccffffff
 
 line-color = ${bar/bottom.background}
-line-size = 16
+line-size = 5
 
-spacing = 2
 padding-right = 5
 module-margin = 4
 
@@ -22,7 +21,8 @@ font-5 = "Font Awesome 5 Free:style=Solid:size=10;-2"
 font-6 = "Font Awesome 5 Brands:style=Regular:size=10;0"
 
 modules-left = i3
-modules-right = pulseaudio wireless-network wired-network battery date
+modules-center = date
+modules-right = pulseaudio wireless-network wired-network battery
 
 [bar/bottom]
 monitor = eDP-1
