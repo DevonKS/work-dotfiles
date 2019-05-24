@@ -106,6 +106,8 @@
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
+(require 'flycheck-pos-tip)
+
 (eval-after-load 'flycheck
   '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
 
@@ -137,7 +139,6 @@
   "mf" 'cider-format-buffer)
 
 (eval-after-load 'cider '(flycheck-clojure-setup))
-
 
 ;TODO
 ;workspaces
