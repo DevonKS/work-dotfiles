@@ -26,11 +26,18 @@
                       flycheck-clojure
                       flycheck-pos-tip
                       powerline
-                      airline-themes))
+                      airline-themes
+                      helm))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
     (package-install p)))
+
+(helm-mode 1)
+(define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
+(define-key helm-find-files-map (kbd "<tab>") 'helm-ff-RET)
+(define-key helm-read-file-map (kbd "DEL") 'helm-find-files-up-one-level)
+(define-key helm-read-file-map (kbd "<tab>") 'helm-ff-RET)
 
 (require 'better-defaults)
 
@@ -47,13 +54,14 @@
 (evil-leader/set-leader "<SPC>")
 (evil-mode 1)
 (evil-leader/set-key
-  "o" 'find-file
-  "e" 'eval-expression
-  "r" 'execute-extended-command
+  "o" 'helm-find-files
+  "e" 'eval-xpression
+  "r" 'helm-M-x
   "j" 'avy-goto-char
   "ls" (lambda () (interactive) (split-window-below) (windmove-down) (window-resize nil -15) (term "/bin/bash"))
-  "sb" 'ido-switch-buffer
-  "bk" 'ido-kill-buffer
+  "bs" 'helm-mini
+  "bk" (lambda () (interactive) (kill-buffer))
+  "kr" 'helm-show-kill-ring
   "fs" 'save-buffer
   "sv" 'split-window-below
   "sh" 'split-window-right
@@ -136,7 +144,8 @@
   "mrr" 'cider-ns-refresh
   "mgf" '(lambda () (interactive) (cider-find-var t))
   "mgb" 'cider-pop-back
-  "mf" 'cider-format-buffer)
+  "mf" 'cider-format-buffer
+  "mo" 'helm-imenu)
 
 (eval-after-load 'cider '(flycheck-clojure-setup))
 
