@@ -201,6 +201,8 @@ bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $stat
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
 
 bindsym $mod+Control+l exec gnome-screensaver-command -l
+#exec --no-startup-id xautolock -time 3 -locker "gnome-screensaver-command -l"
+#exec --no-startup-id ~/scripts/lightsOn/lightsOn.sh 150
 
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to "%s"' -P 'New Name: '
 
@@ -210,5 +212,5 @@ bindsym $mod+t exec rofi-theme-selector
 
 bindsym Mod1+Tab workspace back_and_forth
 
+exec --no-startup-id feh --bg-fill ~/.i3/space.png
 exec_always --no-startup-id ~/.i3/launch-polybar.sh &
-exec --no-startup-id feh --bg-scale ~/.i3/space.png
