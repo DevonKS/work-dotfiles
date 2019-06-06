@@ -27,7 +27,9 @@
                       flycheck-pos-tip
                       powerline
                       airline-themes
-                      helm))
+                      helm
+                      magit
+                      evil-magit))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -148,6 +150,10 @@
   "mo" 'helm-imenu)
 
 (eval-after-load 'cider '(flycheck-clojure-setup))
+
+;;;;;;;;;;;;;;;;;;;;;;;; Version Control ;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'magit)
+(require 'evil-magit)
 
 ;TODO
 ;workspaces
