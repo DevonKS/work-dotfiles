@@ -28,6 +28,7 @@
                       powerline
                       airline-themes
                       helm
+                      helm-ag
                       magit
                       evil-magit))
 
@@ -40,6 +41,8 @@
 (define-key helm-find-files-map (kbd "<tab>") 'helm-ff-RET)
 (define-key helm-read-file-map (kbd "DEL") 'helm-find-files-up-one-level)
 (define-key helm-read-file-map (kbd "<tab>") 'helm-ff-RET)
+(setq helm-mode-fuzzy-match t)
+(setq helm-completion-in-region-fuzzy-match t)
 
 (require 'better-defaults)
 
@@ -52,14 +55,17 @@
 (require 'evil)
 (require 'evil-leader)
 
+(global-linum-mode t)
+
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 (evil-mode 1)
 (evil-leader/set-key
   "o" 'helm-find-files
-  "e" 'eval-xpression
+  "e" 'eval-expression
   "r" 'helm-M-x
   "j" 'avy-goto-char
+  "g" 'helm-do-ag
   "ls" (lambda () (interactive) (split-window-below) (windmove-down) (window-resize nil -15) (term "/bin/bash"))
   "bs" 'helm-mini
   "bk" (lambda () (interactive) (kill-buffer))
@@ -93,9 +99,15 @@
         (etcc-on)
         ))
 
-;I'm disabling these keys so I can use the buildin behavior of C-r (fzf search history) when in term mode.
-(define-key evil-insert-state-map (kbd "C-r") nil)
+; -- Doesn't Work -- I'm disabling these keys so I can use the buildin behavior of C-r (fzf search history) when in term mode.
+;(require 'term)
+;(evil-define-key 'insert term-raw-map (kbd "C-r") nil)
+;(evil-define-key 'insert term-mode-map (kbd "C-r") nil)
+;(define-key term-raw-map (kbd "C-r") nil)
+;(define-key term-mode-map (kbd "C-r") nil)
 (global-unset-key (kbd "C-r"))
+(define-key evil-insert-state-map (kbd "C-r") nil)
+
 
 (global-hl-line-mode 1)
 
